@@ -1,4 +1,3 @@
-#![feature(array_methods)]
 #![feature(generic_const_exprs)]
 
 use std::mem::MaybeUninit;
@@ -50,7 +49,7 @@ impl<const S: usize, T, I> ArrayCollectable<S, T> for I where I: Iterator<Item =
 	}
 }
 
-fn slice_chunks<T>(vec: &Vec<T>, size: usize) -> Vec<&[T]> {
+fn slice_chunks<T>(vec: &[T], size: usize) -> Vec<&[T]> {
 	let len = vec.len();
 	let mut idx = 0;
 	let mut ret_vec = Vec::with_capacity(len / size);
